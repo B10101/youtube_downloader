@@ -4,7 +4,7 @@ def single_youtube_video():
     url = input('Enter a url: ')
     youtube_link_for_download = pytube.YouTube(url)
     a = youtube_link_for_download.streams.get_by_itag(22).download()
-    
+
 
 def playlists():
     url = input("Enter playlist url: ")
@@ -13,5 +13,10 @@ def playlists():
     for i in youtube_link_for_download.videos:
         i.streams.get_by_itag(22).download()
 
-playlists()
+def main():
+    a = input("What do you want to download between a video and a whole playlist?")
+    if a == "video":
+        single_youtube_video()
+    else:
+        playlists()
     
